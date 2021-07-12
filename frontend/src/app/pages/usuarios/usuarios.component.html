@@ -1,0 +1,51 @@
+<div class="container mb-5">
+    <app-navbar></app-navbar>
+</div>
+<div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header">
+                        <h3>Listado de Usuarios</h3>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        Listado de usuarios a los cuales se les define un rol  para poder operar en el sistema.
+                        <div class="card shadow mb-2 mt-5">   
+                            <div class="card-header">
+                                <a [routerLink]="['/crear-usuario']" class="btn btn-large bg-dark text-white">Agregar</a>
+                            </div>                 
+                            <div class="card-body cuerpo">
+    
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Usuario</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Rol</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor=" let usuario of this.usuarios">
+                                            <th scope="row">{{usuario.id}}</th>
+                                            <td>{{usuario.names}}</td>
+                                            <td>{{usuario.email}}</td>
+                                            <td>{{usuario.role}}</td>
+                                            <td>
+                                                <button *ngIf="usuario.status" [routerLink]="[ '/editar-usuario/', usuario.id ]"  class="btn btn-default mr-3"><i class="fa fa-edit" style="font-size:18px"></i></button>                                                
+                                                <button *ngIf="usuario.status" (click)="inactivar(usuario.id)"  class="btn btn-default mr-3"><i class="far fa-trash-alt" ></i></button>                                           
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    

@@ -1,0 +1,52 @@
+<div class="container mb-5">
+    <app-navbar></app-navbar>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header">
+                    <h3>Listado de Clientes</h3>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    Listado de clientes sobre los que pueden operar los vendedores.
+                    <div class="card shadow mb-2 mt-5">   
+                        <div class="card-header">
+                            <a [routerLink]="['/crear-cliente']" class="btn btn-large bg-dark text-white">Agregar</a>
+
+                        </div>                 
+                        <div class="card-body cuerpo">
+
+                            <table class="table">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">nombre</th>
+                                    <th scope="col">Numero de documento</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor=" let cliente of this.clientes">
+                                        <th scope="row">{{cliente.id}}</th>
+                                        <td>{{cliente.names}} {{cliente.surnames}}</td>
+                                        <td>{{cliente.document_number}}</td>
+                                        <td>{{cliente.email}}</td>
+                                        <td>
+                                           <button *ngIf="cliente.status" [routerLink]="[ '/editar-cliente/', cliente.id ]"  class="btn btn-default mr-3"><i class="fa fa-edit" style="font-size:18px"></i></button>
+                                           <button *ngIf="cliente.status" (click)="inactivar(cliente.id)"  class="btn btn-default mr-3"><i class="far fa-trash-alt" ></i></button>                                           
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    

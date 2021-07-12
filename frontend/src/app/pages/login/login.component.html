@@ -1,0 +1,69 @@
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-6 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="text-center">
+                            <h6>Ingreso</h6>
+                    </div>
+                </div>
+                <div class="card-body ">
+                    <form autocomplete="off" [formGroup]="formLogin" (ngSubmit)="loginByToken()">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input 
+                                type            ="email" 
+                                class           ="form-control" 
+                                id              = "emial"  
+                                formControlName = "email" 
+                                autocomplete    = "off" >
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input 
+                                type            = "password" 
+                                class           = "form-control" 
+                                id              = "password" 
+                                formControlName = "password" 
+                                autocomplete    = "new-password">
+                        </div>
+                        <button  class="btn btn-primary">
+                                INGRESAR
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+<div class="card mt-5">
+    <div class="card-header">
+        Bienvenido
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+                <div class="list-group">
+                    <div class="list-group-item list-group-item-action ">
+                        <p class="mb-1">Sistema de prueba, frontend</p>
+                        <small>
+                            Para Continuar debera primero configurar los permisos por acción en el modulo de adminitración.
+                            El cual esta disponible en la dirección http://localhost:8082/ 
+                            Esta es la ruta sugerida si se ejecuto el proyecto con docker-compose up -d
+                        </small>
+                    </div>
+                    <div  class="list-group-item list-group-item-action ">
+                            <p class="mb-1">Funcionamiento del modulo</p>
+                            <small>
+                                Este proyecto de frontend permite agregar y/o modificar (usuarios - clientes) 
+                                de acuerdo a los permisos asignados al Rol en el panel de administración
+                            </small>
+                        </div>
+                </div>
+        </blockquote>
+    </div>
+</div>
+    
+    

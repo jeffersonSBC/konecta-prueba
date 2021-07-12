@@ -1,0 +1,136 @@
+<div class="container mb-5">
+    <app-navbar></app-navbar>
+</div>
+<div class="card shadow mb-4">
+    <div class="card-header">
+        <h3>Crear Usuario</h3>
+    </div>
+    <div class="card-body ">
+        <form autocomplete="off" [formGroup]="formUsuario" (ngSubmit)="postUsuario()">
+            <div class="mx-5">
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="type_document_id">Tipo de Documento<b>*</b></label>
+                            <select class="form-control " id="type_document_id" name="type_document_id" formControlName="type_document_id">
+                                <option value='-' disabled selected>--</option>
+                                <option value="{{type_document['id']}}" *ngFor="let type_document of this.typeDocument" >{{type_document['code']}} - {{type_document['description']}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">    
+                            <label for="document_number">Numero de documento<b>*</b></label>
+                            <input 
+                                type            = "text" 
+                                class           = "form-control" 
+                                id              = "document_number" 
+                                name            = "document_number"
+                                formControlName = "document_number" >
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label  for="user">Usuario<b>*</b></label>
+                            <input  
+                                id              = "user" 
+                                type            = "text" 
+                                class           = "form-control " 
+                                name            = "user"  
+                                formControlName = "user" >
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">    
+                            <label  for="email">Correo<b>*</b></label>
+                            <input 
+                                type            = "email" 
+                                class           = "form-control" 
+                                id              = "email" 
+                                name            = "email" 
+                                formControlName = "email" >
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label  for="gender_id">Genero</label>
+                            <select class="form-control" id="gender_id" name="gender_id" formControlName = "gender_id" >
+                                <option value='-' disabled selected>--</option>
+                                <option value="{{gender['id']}}" *ngFor="let gender of this.genders" >{{gender['code']}} - {{gender['description']}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>            
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="names">Nombres<b>*</b></label>
+                            <input 
+                                id              = "names"  
+                                type            = "text" 
+                                class           = "form-control" 
+                                name            = "names"  
+                                formControlName = "names">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">    
+                            <label  for="surnames">Apellidos<b>*</b></label>
+                            <input 
+                                type            = "text" 
+                                class           = "form-control" 
+                                id              = "surnames" 
+                                name            = "surnames"
+                                formControlName = "surnames" >
+                        </div>
+                    </div>
+                </div> 
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="password">Contraseña<b>*</b></label>
+                            <input 
+                                type            = "password" 
+                                class           = "form-control" 
+                                id              = "password" 
+                                name            = "password" 
+                                autocomplete    = "new-password"
+                                formControlName = "password">  
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">    
+                            <label for="confirm_password">Confirmar Contraseña<b>*</b></label>
+                            <input  
+                                type            = "password" 
+                                class           = "form-control" 
+                                id              = "confirm_password" 
+                                name            = "confirm_password" 
+                                autocomplete    = "new-password"
+                                formControlName = 'confirm_password'>   
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="role_id">Rol<b>*</b></label>
+                            <select class="form-control  " id="role_id" name="role_id" formControlName = "role_id">
+                                <option value='-' disabled selected>--</option>
+                                <option value="{{rol['id']}}" *ngFor="let rol of this.roles" >{{rol['name']}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>      
+                <hr class="divider my-4">                                                             
+                <button  class="btn btn-primary">
+                        GUARDAR
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

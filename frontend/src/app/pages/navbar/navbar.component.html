@@ -1,0 +1,20 @@
+<nav id="sidebar" class="mb-3">
+    <ul class="nav justify-content-end">                   
+        <li class="nav-item text-secondary" *ngIf="this.verUsuarios == 'true' || this.rol == 'SuperAdmin'">
+            <a  class="nav-link text-secondary" [routerLink]="['/usuarios']">
+                Usuarios
+            </a>
+        </li>
+        <li class="nav-item text-secondary" *ngIf="this.verClientes == 'true' || this.rol == 'SuperAdmin'">
+            <a  class="nav-link text-secondary" [routerLink]="['/clientes']"  >
+                Clientes
+            </a>
+        </li>         
+        <li class="nav-item text-secondary">
+            <a class="nav-link text-secondary" (click)="logout()">
+                <i class="fas fa-power-off"></i>
+            </a>
+        </li>
+    </ul>
+ </nav>
+    
